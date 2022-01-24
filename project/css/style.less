@@ -1,0 +1,186 @@
+/*
+
+File Name: style.less
+Date: 02/12/2021
+Programmer: Ella Seaman
+
+*/
+/*
+CHANGES DONE:
+- All body links now have a hover color attribute of @darkColor4
+- All header links now have a hover color attribute of @lightColor3
+- Changed h1 to @lightColor4 increased font size to 2em and added .5 em bottom padding
+- Added background of @lightColor1 to pre tag and padding of .1em
+- Em style is now color: @greyColor4
+
+MIXINS ADDED:
+- All links have added .expand when hovered. 
+- Images have added .border
+- Images hover has .transparent and .flipH
+- The h1 now has .bold and .textSpace
+- The h3 now has .emphasize
+- The pre now has .space
+- Added .pageBreak to header tag
+
+*/
+
+/* Color Scheme */
+
+@import 'palette.less';
+@import 'mixins.less';
+
+/* MOBILE STYLESHEET */
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    background-color: @color1;
+    color: @darkColor;
+}
+a {
+    &:link {
+        color: @color2;
+    }
+    &:link:hover {
+        color: @lightColor2;
+        .expand;
+    }
+    &:visited {
+        color: @color1;
+    }
+}
+
+img {
+    
+    .border;
+    &:hover {
+    .transparent;
+    .flipH;
+    }
+}
+
+main, header, footer, nav {
+    padding: 1em;
+}
+nav, footer, header {
+    background-color: @color3;
+}
+
+header {
+    .pageBreak;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    color: @color1;
+}
+
+main {
+    h1, h2, h3 {
+        color: @color4;
+    }
+    a {
+    &:link {
+        color: @color3;
+    &:link:hover {
+        color: @darkColor4;
+        .expand;
+    }
+    &:visited {
+        color: @color5;
+    }
+    }
+    }    
+
+}
+
+h1 {
+    font-size: 2em;
+    color: @lightColor4;
+    padding-bottom: .5em;
+    .bold;
+    .textSpace;
+}
+
+h2 {
+    font-size: 1.4em;
+    .emphasize;
+}
+
+h3 {
+    font-size: 1.1em;
+}
+
+ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+
+li {
+    line-height: 1.5em;
+}
+
+
+em {
+    font-style: italic;
+    color: @greyColor4;
+    
+}
+
+pre {
+    background-color: @greyColor1;
+    padding: .1em;
+    font-family: "Courier New", monospace;
+    white-space: pre-wrap;
+    .space;
+}
+
+nav li {
+    list-style: none;
+    text-align: center;
+    padding: .5em;
+}
+
+
+
+
+/*
+
+TABLET STYLESHEET
+
+The following CSS affects all screen sizes larger than 480 pixels wide.
+
+*/
+
+@media only screen and (min-width: 481px) {
+
+    body {
+        font-size: 14px;
+    }
+    
+    nav li {
+    
+    list-style: none;
+    display: inline;
+}
+
+}
+
+/*
+
+DESKTOP STYLESHEET
+
+The following CSS affects all screen sizes larger than 1024 pixels wide.
+
+*/
+
+@media only screen and (min-width: 1025px) {
+    header, main, footer {
+        padding: 2em;
+    }
+
+}
